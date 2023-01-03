@@ -1,0 +1,24 @@
+﻿@model MvcCV.Models.Entity.tbl_Awards
+@{
+    ViewBag.Title = "AwardGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Update Awards Page</h4>
+
+<br />
+
+<form method="post">
+
+    @Html.Label("Certificate description")
+    @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+    <br />
+    @Html.Label("Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+
+
+    <button class="btn btn-dark" style="margin-top:15px;">Update</button>
+    <a href="/Awards/AwardDelete/@ViewBag.d" class="btn btn-danger" style="margin-top:15px;">Delete</a>
+</form>
+

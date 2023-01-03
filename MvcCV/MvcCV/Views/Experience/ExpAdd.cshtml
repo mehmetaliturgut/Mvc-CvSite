@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "ExpAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Add New Experience Page</h4>
+
+<br />
+
+<form method="post">
+
+    <input type="text" name="Ttile" class="form-control" placeholder="Write the Title" />
+    <br />
+    <input type="text" name="Subtitle" class="form-control" placeholder="Write the Subtitle" /><br />
+    <input type="text" name="Date" class="form-control" placeholder="Date" /><br />
+    <textarea placeholder="Explain" name="Explanation" class="form-control" rows="5"></textarea>
+
+    <button class="btn btn-dark" style="margin-top:15px;">Save</button>
+</form>
+

@@ -1,0 +1,25 @@
+﻿@model MvcCV.Models.Entity.tbl_Awards
+@{
+    ViewBag.Title = "NewAward";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Add New Certificate Page</h4>
+
+<br />
+
+<form method="post">
+
+    @Html.Label("Certificate description")
+    @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Explanation, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Date, "", new { @style = "color:red" })
+
+
+    <button class="btn btn-dark" style="margin-top:15px;">Save</button>
+</form>
+

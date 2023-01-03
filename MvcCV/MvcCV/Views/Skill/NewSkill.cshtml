@@ -1,0 +1,23 @@
+﻿@model MvcCV.Models.Entity.tbl_Skills
+@{
+    ViewBag.Title = "NewSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Add New Skill Page</h4>
+
+<br />
+
+<form method="post">
+
+    @Html.Label("Skill")
+    @Html.TextBoxFor(x => x.Skill, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Skill, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Rate")
+    @Html.TextBoxFor(x => x.Rate, new { @class = "form-control" })
+
+
+    <button class="btn btn-dark" style="margin-top:15px;">Save</button>
+</form>

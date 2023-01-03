@@ -1,0 +1,93 @@
+﻿@using MvcCV.Models.Entity
+@model List<tbl_Skills>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ string renk = "";}
+@{ string lrenk = "";}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">My Skill List</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Skill/NewSkill/"class="btn btn-info" style="margin-bottom:15px">New Add Skill</a>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Skill</th>
+                                            <th>#</th>
+                                            <th style="width: 40px">Rate</th>
+                                            <th>Delete</th>
+                                            <th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            if (x.Rate >= 0 && x.Rate <= 50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                                lrenk = "badge bg-danger";
+                                            }
+                                            if (x.Rate >= 51 && x.Rate <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                                lrenk = "badge bg-warning";
+                                            }
+                                            if (x.Rate >= 71 && x.Rate <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                                lrenk = "badge bg-primary";
+                                            }
+                                            if (x.Rate >= 85 && x.Rate <= 100)
+                                            {
+                                                renk = "progress-bar bg-succes";
+                                                lrenk = "badge bg-succes";
+                                            }
+
+                                            <tr>
+                                                <td>@x.ID</td>
+                                                <td>@x.Skill</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @x.Rate%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@lrenk">@x.Rate%</span></td>
+                                                <td><a href="/Skill/SkillDelete/@x.ID" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i> </a></td>
+                                                <td><a href="/Skill/SkillEdit/@x.ID" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"> Edit</i> </a></td>
+                                            </tr>
+                                        }
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>
+
